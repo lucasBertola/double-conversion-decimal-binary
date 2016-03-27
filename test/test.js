@@ -1,38 +1,40 @@
 var expect    = require("chai").expect;
 var doubleConversion = require('../src/index.js');
-describe("uint8 toArrayBinary", function() {
+describe("toArrayBinary", function() {
 
-	it("uint8 toArrayBinary with number 5", function() {
-		var array = doubleConversion.uint8(5).toArrayBinary();
-		expect(array).to.deep.equal([0,0,0,0,0,1,0,1]);
+	describe("uint8 toArrayBinary", function() {
+
+		it("uint8 toArrayBinary with number 5", function() {
+			var array = doubleConversion.uint8(5).toArrayBinary();
+			expect(array).to.deep.equal([0,0,0,0,0,1,0,1]);
+		});
+
+		it("uint8 toArrayBinary with number 14", function() {
+			var array = doubleConversion.uint8(14).toArrayBinary();
+			expect(array).to.deep.equal([0,0,0,0,1,1,1,0]);
+		});
+
+		it("uint8 toArrayBinary with number 37", function() {
+			var array = doubleConversion.uint8(37).toArrayBinary();
+			expect(array).to.deep.equal([0,0,1,0,0,1,0,1]);
+		});
+
+		it("uint8 toArrayBinary with number 96", function() {
+			var array = doubleConversion.uint8(96).toArrayBinary();
+			expect(array).to.deep.equal([0,1,1,0,0,0,0,0]);
+		});
+
+		it("uint8 toArrayBinary with number 165", function() {
+			var array = doubleConversion.uint8(165).toArrayBinary();
+			expect(array).to.deep.equal([1,0,1,0,0,1,0,1]);
+		});
+
+		it("uint8 toArrayBinary with number 254", function() {
+			var array = doubleConversion.uint8(254).toArrayBinary();
+			expect(array).to.deep.equal([1,1,1,1,1,1,1,0]);
+		});
+
 	});
-
-	it("uint8 toArrayBinary with number 14", function() {
-		var array = doubleConversion.uint8(14).toArrayBinary();
-		expect(array).to.deep.equal([0,0,0,0,1,1,1,0]);
-	});
-
-	it("uint8 toArrayBinary with number 37", function() {
-		var array = doubleConversion.uint8(37).toArrayBinary();
-		expect(array).to.deep.equal([0,0,1,0,0,1,0,1]);
-	});
-
-	it("uint8 toArrayBinary with number 96", function() {
-		var array = doubleConversion.uint8(96).toArrayBinary();
-		expect(array).to.deep.equal([0,1,1,0,0,0,0,0]);
-	});
-
-	it("uint8 toArrayBinary with number 165", function() {
-		var array = doubleConversion.uint8(165).toArrayBinary();
-		expect(array).to.deep.equal([1,0,1,0,0,1,0,1]);
-	});
-
-	it("uint8 toArrayBinary with number 254", function() {
-		var array = doubleConversion.uint8(254).toArrayBinary();
-		expect(array).to.deep.equal([1,1,1,1,1,1,1,0]);
-	});
-
-});
 
 
 describe("uint16 toArrayBinary", function() {
@@ -92,4 +94,74 @@ describe("uint32 toArrayBinary", function() {
 	});
 
 
+});
+
+
+describe("float32 toArrayBinary", function() {
+
+	it("float32 toArrayBinary with number 5", function() {
+		var array = doubleConversion.float32(5).toArrayBinary();
+		expect(array).to.deep.equal([0,1,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]);
+	});
+
+	it("float32 toArrayBinary with number 5.5", function() {
+		var array = doubleConversion.float32(5.5).toArrayBinary();
+		expect(array).to.deep.equal([0,1,0,0,0,0,0,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]);
+	});
+
+	it("float32 toArrayBinary with number 4865.5614285", function() {
+		var array = doubleConversion.float32(4865.561).toArrayBinary();
+		expect(array).to.deep.equal([0,1,0,0,0,1,0,1,1,0,0,1,1,0,0,0,0,0,0,0,1,1,0,0,0,1,1,1,1,1,0,0]);
+	});
+
+	it("float32 toArrayBinary with number 84865.5614285", function() {
+		var array = doubleConversion.float32(84865.51).toArrayBinary();
+		expect(array).to.deep.equal([0,1,0,0,0,1,1,1,1,0,1,0,0,1,0,1,1,1,0,0,0,0,0,0,1,1,0,0,0,0,0,1]);
+	});
+
+	it("float32 toArrayBinary with number -84865.5614285", function() {
+		var array = doubleConversion.float32(-96145.42).toArrayBinary();
+		expect(array).to.deep.equal([1,1,0,0,0,1,1,1,1,0,1,1,1,0,1,1,1,1,0,0,1,0,0,0,1,0,1,1,0,1,0,1]);
+	});
+
+	it("float32 toArrayBinary with number 303615670000000000000000000000000000000", function() {
+		var array = doubleConversion.float32(303615670000000000000000000000000000000).toArrayBinary();
+		expect(array).to.deep.equal([0,1,1,1,1,1,1,1,0,1,1,0,0,1,0,0,0,1,1,0,1,0,1,0,0,1,0,0,0,0,0,0]);
+	});
+
+	it("float32 toArrayBinary with number 3.0361567e38", function() {
+		var array = doubleConversion.float32(3.0361567e38).toArrayBinary();
+		expect(array).to.deep.equal([0,1,1,1,1,1,1,1,0,1,1,0,0,1,0,0,0,1,1,0,1,0,1,0,0,1,0,0,0,0,0,0]);
+	});
+
+
+
+});
+
+
+describe("float64 toArrayBinary", function() {
+
+	it("float64 toArrayBinary with number 5", function() {
+		var array = doubleConversion.float64(5).toArrayBinary();
+		expect(array).to.deep.equal([0,1,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]);
+	});
+
+	it("float64 toArrayBinary with number 842.3541257893125", function() {
+		var array = doubleConversion.float64(842.3541257893125).toArrayBinary();
+		expect(array).to.deep.equal([0,1,0,0,0,0,0,0,1,0,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,1,0,1,0,1,0,1,0,0,1,1,1,1,1,1,1,1,1,0,0,1,1,0,1,1,0,1,1,1,1,0,0,0,1,0,0,1,0,0]);
+	});
+
+	it("float64 toArrayBinary with number 3.036156748532156e38", function() {
+		var array = doubleConversion.float64(3.036156748532156e38).toArrayBinary();
+		expect(array).to.deep.equal([0,1,0,0,0,1,1,1,1,1,1,0,1,1,0,0,1,0,0,0,1,1,0,1,0,1,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,1,1,0,1,0,1,0,0,1,1,1,1,1,0,1,1,1,1,1,0,0,0]);
+	});
+
+	it("float64 toArrayBinary with number 1.036156748532156e308", function() {
+		var array = doubleConversion.float64(1.036156748532156e308).toArrayBinary();
+		expect(array).to.deep.equal([0,1,1,1,1,1,1,1,1,1,1,0,0,0,1,0,0,1,1,1,0,0,0,1,1,0,1,1,0,1,1,1,0,0,1,1,1,1,1,0,1,1,0,1,1,1,1,0,1,1,1,1,0,1,0,1,0,0,1,0,0,0,1,0]);
+	});
+
+
+
+});
 });
