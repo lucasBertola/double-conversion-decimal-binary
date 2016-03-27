@@ -1,0 +1,27 @@
+{
+  "name": "inttoarraybit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucasBertola/intToArrayBit.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lucasBertola/intToArrayBit/issues"
+  },
+  "homepage": "https://github.com/lucasBertola/intToArrayBit#readme",
+  "dependencies": {
+    "math-float32-from-bits": "^1.0.1",
+    "math-float32-to-binary-string": "^1.0.0",
+    "math-float64-from-bits": "^1.0.0",
+    "math-float64-to-binary-string": "^1.0.1",
+    "math-uint16-to-binary-string": "^1.0.1",
+    "math-uint32-to-binary-string": "^1.0.0"
+  }
+}
