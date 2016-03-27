@@ -8,6 +8,15 @@ http://my.math.wsu.edu/help/matlab/uint8.html
 https://en.wikipedia.org/wiki/IEEE_754-1985
 
 
+##Installation
+
+You will can install **Double Conversion Decimal Binary** with [npm](https://www.npmjs.com/package/double-conversion-decimal-binary):
+
+```cmd
+npm install double-conversion-decimal-binary --save
+```
+
+
 ##Contribute
 
 **Double Conversion Decimal Binary** is an Open Source project that started in Lyon, French. Anybody in the world is welcome to contribute to the development of the project.
