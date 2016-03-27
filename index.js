@@ -69,4 +69,9 @@ var NumberArray = {
 			}
 		},
 
+		StringBinary : function(arrayInt8) {
+			return {
+			}
+		},
+
 }
