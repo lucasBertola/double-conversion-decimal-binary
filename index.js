@@ -2,76 +2,78 @@ var binaryString = require( 'math-float64-to-binary-string' );
 var fromBits = require( 'math-float64-from-bits' );
 
 
-function toArrayBinary(binaryStringFunction,number){
-	return binaryStringFunction(number).split('').map(Number);
+function numberProcess(numberToStringBinaryFunction,number){
+	return {
+		toArrayBinary : function(){
+			return numberToStringBinaryFunction(number).split('').map(Number);
+		},
+		toStringBinary : function(){
+			return numberToStringBinaryFunction(number);
+		}
+	}
 }
-function toStringBinary(binaryStringFunction,number){
-	return binaryStringFunction(number);
+
+function arrayProcess(binaryStringToNumberFunction,string){
+	return binaryStringToNumberFunction(string)
 }
 
 var NumberArray = {
-		int8 : function(int8) {
-			return {
-				toArrayBinary : function(){
-					return toArrayBinary(binaryString,int8);
-				},
-				toStringBinary : function(){
-					return toStringBinary(binaryString,int8);
-				}
-			}
-		},
-		int16 : function(int16) {
-			return {
-				toArrayBinary : function(){
-					return toArrayBinary(binaryString,int16);
-				},
-				toStringBinary : function(){
-					return toStringBinary(binaryString,int16);
-				}
-			}
-		},
-		int32 : function(int32) {
-			return {
-				toArrayBinary : function(){
-					return toArrayBinary(binaryString,int32);
-				},
-				toStringBinary : function(){
-					return toStringBinary(binaryString,int32);
-				}
-			}
-		},
-		float16 : function(float16) {
-			return {
-				toArrayBinary : function(){
-					return toArrayBinary(binaryString,float16);
-				},
-				toStringBinary : function(){
-					return toStringBinary(binaryString,float16);
-				}
-			}
-		},
-		float34 : function(float34) {
-			return {
-				toArrayBinary : function(){
-					return toArrayBinary(binaryString,float34);
-				},
-				toStringBinary : function(){
-					return toStringBinary(binaryString,float34);
-				}
-			}
-		}
-		,
-		arrayBinary : function(arrayInt8) {
-			return {
-				toInt8 : function(){
-					return fromBits(arrayInt8.join(''))
-				}
-			}
-		},
+	int8 : function(int8) {
+		return numberProcess(binaryString,int8);
+	},
+	int16 : function(int16) {
+		return numberProcess(binaryString,int16);
+	},
+	int32 : function(int32) {
+		return numberProcess(binaryString,int32);
+	},
+	float32 : function(float16) {
+		return numberProcess(binaryString,float16);
+	},
+	float64 : function(float34) {
+		return numberProcess(binaryString,float34);
+	}
+	,
+	arrayBinary : function(arrayInt8) {
+		return {
+			toInt8 : function(){
+				return arrayProcess(fromBits,arrayInt8.join(''))
+			},
+			toInt16 : function(){
+				return arrayProcess(fromBits,arrayInt8.join(''))
+			},
+			toInt32 : function(){
+				return arrayProcess(fromBits,arrayInt8.join(''))
+			},
+			toFloat32 : function(){
+				return arrayProcess(fromBits,arrayInt8.join(''))
+			},
+			toFloat64 : function(){
+				return arrayProcess(fromBits,arrayInt8.join(''))
+			},
 
-		StringBinary : function(arrayInt8) {
-			return {
-			}
-		},
+		}
+	},
+
+	StringBinary : function(arrayInt8) {
+		return {
+			toInt8 : function(){
+				return arrayProcess(fromBits,arrayInt8)
+			},
+			toInt16 : function(){
+				return arrayProcess(fromBits,arrayInt8)
+			},
+			toInt32 : function(){
+				return arrayProcess(fromBits,arrayInt8)
+			},
+
+			toFloat32 : function(){
+				return arrayProcess(fromBits,arrayInt8)
+			},
+			toFloat64 : function(){
+				return arrayProcess(fromBits,arrayInt8)
+			},
+		}
+	},
 
 }
