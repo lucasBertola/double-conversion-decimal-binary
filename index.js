@@ -5,12 +5,18 @@ var fromBits = require( 'math-float64-from-bits' );
 function toArrayBinary(binaryStringFunction,number){
 	return binaryStringFunction(number).split('').map(Number);
 }
+function toStringBinary(binaryStringFunction,number){
+	return binaryStringFunction(number);
+}
+
 var NumberArray = {
 		int8 : function(int8) {
 			return {
 				toArrayBinary : function(){
 					return toArrayBinary(binaryString,int8);
-					
+				},
+				toStringBinary : function(){
+					return toStringBinary(binaryString,int8);
 				}
 			}
 		},
@@ -18,6 +24,9 @@ var NumberArray = {
 			return {
 				toArrayBinary : function(){
 					return toArrayBinary(binaryString,int16);
+				},
+				toStringBinary : function(){
+					return toStringBinary(binaryString,int16);
 				}
 			}
 		},
@@ -25,6 +34,9 @@ var NumberArray = {
 			return {
 				toArrayBinary : function(){
 					return toArrayBinary(binaryString,int32);
+				},
+				toStringBinary : function(){
+					return toStringBinary(binaryString,int32);
 				}
 			}
 		},
@@ -32,6 +44,9 @@ var NumberArray = {
 			return {
 				toArrayBinary : function(){
 					return toArrayBinary(binaryString,float16);
+				},
+				toStringBinary : function(){
+					return toStringBinary(binaryString,float16);
 				}
 			}
 		},
@@ -39,6 +54,9 @@ var NumberArray = {
 			return {
 				toArrayBinary : function(){
 					return toArrayBinary(binaryString,float34);
+				},
+				toStringBinary : function(){
+					return toStringBinary(binaryString,float34);
 				}
 			}
 		}
