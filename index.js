@@ -1,6 +1,18 @@
-var binaryString = require( 'math-float64-to-binary-string' );
-var fromBits = require( 'math-float64-from-bits' );
+var binaryStringFlot64 = require( 'math-float64-to-binary-string' );
+var fromBitsFloat64    = require( 'math-float64-from-bits' );
 
+var binaryStringFlot32 = require( 'math-float32-to-binary-string' );
+var fromBitsFloat32    = require( 'math-float32-from-bits' );
+
+var binaryStringUint32 = require( 'math-uint32-to-binary-string' );
+
+var binaryStringUint16 = require( 'math-uint16-to-binary-string' );
+
+var binaryStringUint8  = require( 'math-uint8-bits' );
+
+function uintBinaryStringToDecimal(number) {
+	return parseInt(number, 2);
+}
 
 function numberProcess(numberToStringBinaryFunction,number){
 	return {
@@ -18,38 +30,38 @@ function arrayProcess(binaryStringToNumberFunction,string){
 }
 
 var NumberArray = {
-	int8 : function(int8) {
-		return numberProcess(binaryString,int8);
+	uint8 : function(int8) {
+		return numberProcess(binaryStringUint8,int8);
 	},
-	int16 : function(int16) {
-		return numberProcess(binaryString,int16);
+	uint16 : function(int16) {
+		return numberProcess(binaryStringUint16,int16);
 	},
-	int32 : function(int32) {
-		return numberProcess(binaryString,int32);
+	uint32 : function(int32) {
+		return numberProcess(binaryStringUint32,int32);
 	},
 	float32 : function(float16) {
-		return numberProcess(binaryString,float16);
+		return numberProcess(binaryStringFlot32,float16);
 	},
 	float64 : function(float34) {
-		return numberProcess(binaryString,float34);
+		return numberProcess(binaryStringFlot64,float34);
 	}
 	,
 	arrayBinary : function(arrayInt8) {
 		return {
-			toInt8 : function(){
-				return arrayProcess(fromBits,arrayInt8.join(''))
+			toUint8 : function(){
+				return arrayProcess(uintBinaryStringToDecimal,arrayInt8.join(''))
 			},
-			toInt16 : function(){
-				return arrayProcess(fromBits,arrayInt8.join(''))
+			toUint16 : function(){
+				return arrayProcess(uintBinaryStringToDecimal,arrayInt8.join(''))
 			},
-			toInt32 : function(){
-				return arrayProcess(fromBits,arrayInt8.join(''))
+			toUint32 : function(){
+				return arrayProcess(uintBinaryStringToDecimal,arrayInt8.join(''))
 			},
 			toFloat32 : function(){
-				return arrayProcess(fromBits,arrayInt8.join(''))
+				return arrayProcess(fromBitsFloat32,arrayInt8.join(''))
 			},
 			toFloat64 : function(){
-				return arrayProcess(fromBits,arrayInt8.join(''))
+				return arrayProcess(fromBitsFloat64,arrayInt8.join(''))
 			},
 
 		}
@@ -57,21 +69,21 @@ var NumberArray = {
 
 	StringBinary : function(arrayInt8) {
 		return {
-			toInt8 : function(){
-				return arrayProcess(fromBits,arrayInt8)
+			toUint8 : function(){
+				return arrayProcess(uintBinaryStringToDecimal,arrayInt8)
 			},
-			toInt16 : function(){
-				return arrayProcess(fromBits,arrayInt8)
+			toUint16 : function(){
+				return arrayProcess(uintBinaryStringToDecimal,arrayInt8)
 			},
-			toInt32 : function(){
-				return arrayProcess(fromBits,arrayInt8)
+			toUint32 : function(){
+				return arrayProcess(uintBinaryStringToDecimal,arrayInt8)
 			},
 
 			toFloat32 : function(){
-				return arrayProcess(fromBits,arrayInt8)
+				return arrayProcess(fromBitsFloat32,arrayInt8)
 			},
 			toFloat64 : function(){
-				return arrayProcess(fromBits,arrayInt8)
+				return arrayProcess(fromBitsFloat64,arrayInt8)
 			},
 		}
 	},
