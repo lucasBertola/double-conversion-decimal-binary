@@ -24,5 +24,9 @@
     "math-uint16-to-binary-string": "^1.0.1",
     "math-uint32-to-binary-string": "^1.0.0",
     "math-uint8-bits": "^1.0.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-mocha": "^2.2.0"
   }
 }
