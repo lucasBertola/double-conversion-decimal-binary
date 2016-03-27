@@ -89,3 +89,5 @@ var NumberArray = {
 	},
 
 }
+
+module.exports = NumberArray;
