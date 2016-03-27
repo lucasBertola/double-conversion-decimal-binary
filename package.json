@@ -1,6 +1,6 @@
 {
   "name": "double-conversion-decimal-binary",
-  "version": "1.0.0",
+  "version": "1.01.0",
   "description": "",
   "main": "src/index.js",
   "scripts": {
