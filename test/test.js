@@ -288,41 +288,41 @@ describe("uint32 toStringBinary", function() {
 });
 
 
-describe("float32 toArrayBinary", function() {
+describe("float32 toStringBinary", function() {
 
-	it("float32 toArrayBinary with number 5", function() {
-		var array = doubleConversion.float32(5).toArrayBinary();
-		expect(array).to.deep.equal([0,1,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]);
+	it("float32 toStringBinary with number 5", function() {
+		var array = doubleConversion.float32(5).toStringBinary();
+		expect(array).to.deep.equal("01000000101000000000000000000000");
 	});
 
-	it("float32 toArrayBinary with number 5.5", function() {
-		var array = doubleConversion.float32(5.5).toArrayBinary();
-		expect(array).to.deep.equal([0,1,0,0,0,0,0,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]);
+	it("float32 toStringBinary with number 5.5", function() {
+		var array = doubleConversion.float32(5.5).toStringBinary();
+		expect(array).to.deep.equal("01000000101100000000000000000000");
 	});
 
-	it("float32 toArrayBinary with number 4865.5614285", function() {
-		var array = doubleConversion.float32(4865.561).toArrayBinary();
-		expect(array).to.deep.equal([0,1,0,0,0,1,0,1,1,0,0,1,1,0,0,0,0,0,0,0,1,1,0,0,0,1,1,1,1,1,0,0]);
+	it("float32 toStringBinary with number 4865.5614285", function() {
+		var array = doubleConversion.float32(4865.561).toStringBinary();
+		expect(array).to.deep.equal("01000101100110000000110001111100");
 	});
 
-	it("float32 toArrayBinary with number 84865.5614285", function() {
-		var array = doubleConversion.float32(84865.51).toArrayBinary();
-		expect(array).to.deep.equal([0,1,0,0,0,1,1,1,1,0,1,0,0,1,0,1,1,1,0,0,0,0,0,0,1,1,0,0,0,0,0,1]);
+	it("float32 toStringBinary with number 84865.5614285", function() {
+		var array = doubleConversion.float32(84865.51).toStringBinary();
+		expect(array).to.deep.equal("01000111101001011100000011000001");
 	});
 
-	it("float32 toArrayBinary with number -84865.5614285", function() {
-		var array = doubleConversion.float32(-96145.42).toArrayBinary();
-		expect(array).to.deep.equal([1,1,0,0,0,1,1,1,1,0,1,1,1,0,1,1,1,1,0,0,1,0,0,0,1,0,1,1,0,1,0,1]);
+	it("float32 toStringBinary with number -84865.5614285", function() {
+		var array = doubleConversion.float32(-96145.42).toStringBinary();
+		expect(array).to.deep.equal("11000111101110111100100010110101");
 	});
 
-	it("float32 toArrayBinary with number 303615670000000000000000000000000000000", function() {
-		var array = doubleConversion.float32(303615670000000000000000000000000000000).toArrayBinary();
-		expect(array).to.deep.equal([0,1,1,1,1,1,1,1,0,1,1,0,0,1,0,0,0,1,1,0,1,0,1,0,0,1,0,0,0,0,0,0]);
+	it("float32 toStringBinary with number 303615670000000000000000000000000000000" ,function() {
+		var array = doubleConversion.float32(303615670000000000000000000000000000000).toStringBinary();
+		expect(array).to.deep.equal("01111111011001000110101001000000");
 	});
 
-	it("float32 toArrayBinary with number 3.0361567e38", function() {
-		var array = doubleConversion.float32(3.0361567e38).toArrayBinary();
-		expect(array).to.deep.equal([0,1,1,1,1,1,1,1,0,1,1,0,0,1,0,0,0,1,1,0,1,0,1,0,0,1,0,0,0,0,0,0]);
+	it("float32 toStringBinary with number 3.0361567e38", function() {
+		var array = doubleConversion.float32(3.0361567e38).toStringBinary();
+		expect(array).to.deep.equal("01111111011001000110101001000000");
 	});
 
 
@@ -330,26 +330,26 @@ describe("float32 toArrayBinary", function() {
 });
 
 
-describe("float64 toArrayBinary", function() {
+describe("float64 toStringBinary" ,function() {
 
-	it("float64 toArrayBinary with number 5", function() {
-		var array = doubleConversion.float64(5).toArrayBinary();
-		expect(array).to.deep.equal([0,1,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]);
+	it("float64 toStringBinary with number 5", function() {
+		var array = doubleConversion.float64(5).toStringBinary();
+		expect(array).to.deep.equal("0100000000010100000000000000000000000000000000000000000000000000");
 	});
 
-	it("float64 toArrayBinary with number 842.3541257893125", function() {
-		var array = doubleConversion.float64(842.3541257893125).toArrayBinary();
-		expect(array).to.deep.equal([0,1,0,0,0,0,0,0,1,0,0,0,1,0,1,0,0,1,0,1,0,0,1,0,1,1,0,1,0,1,0,1,0,0,1,1,1,1,1,1,1,1,1,0,0,1,1,0,1,1,0,1,1,1,1,0,0,0,1,0,0,1,0,0]);
+	it("float64 toStringBinary with number 842.3541257893125" ,function() {
+		var array = doubleConversion.float64(842.3541257893125).toStringBinary();
+		expect(array).to.deep.equal("0100000010001010010100101101010100111111111001101101111000100100");
 	});
 
-	it("float64 toArrayBinary with number 3.036156748532156e38", function() {
-		var array = doubleConversion.float64(3.036156748532156e38).toArrayBinary();
-		expect(array).to.deep.equal([0,1,0,0,0,1,1,1,1,1,1,0,1,1,0,0,1,0,0,0,1,1,0,1,0,1,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,1,1,0,1,0,1,0,0,1,1,1,1,1,0,1,1,1,1,1,0,0,0]);
+	it("float64 toStringBinary with number 3.036156748532156e38" ,function() {
+		var array = doubleConversion.float64(3.036156748532156e38).toStringBinary();
+		expect(array).to.deep.equal("0100011111101100100011010100100000010000001101010011111011111000");
 	});
 
-	it("float64 toArrayBinary with number 1.036156748532156e308", function() {
-		var array = doubleConversion.float64(1.036156748532156e308).toArrayBinary();
-		expect(array).to.deep.equal([0,1,1,1,1,1,1,1,1,1,1,0,0,0,1,0,0,1,1,1,0,0,0,1,1,0,1,1,0,1,1,1,0,0,1,1,1,1,1,0,1,1,0,1,1,1,1,0,1,1,1,1,0,1,0,1,0,0,1,0,0,0,1,0]);
+	it("float64 toStringBinary with number 1.036156748532156e308", function() {
+		var array = doubleConversion.float64(1.036156748532156e308).toStringBinary();
+		expect(array).to.deep.equal("0111111111100010011100011011011100111110110111101111010100100010");
 	});
 
 
